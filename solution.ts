@@ -43,3 +43,16 @@ type ExtChat = {
   ChatItems: IExtNodeElement[];
 };
 
+// Converter functions
+function convertShopingItemType(internal: ShopingItemType): ExtShopingItemType {
+  return {
+    Title: internal.title,
+    Price: internal.price,
+    Currency: internal.currency,
+    Date: {
+      seconds: new Date(internal.date).getTime() / 1000,
+      nanos: 0,
+    },
+  };
+}
+
