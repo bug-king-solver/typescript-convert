@@ -56,3 +56,18 @@ function convertShopingItemType(internal: ShopingItemType): ExtShopingItemType {
   };
 }
 
+function convertINodeElement(internal: INodeElement): IExtNodeElement {
+  return {
+    FirsName: internal.firsName,
+    LastName: internal.lastName,
+    Age: internal.age,
+    BirthDate: {
+      seconds: new Date(internal.birthDate).getTime() / 1000,
+      nanos: 0,
+    },
+    ShoppingItems: internal.shoppingItemsList
+      ? internal.shoppingItemsList.map(convertShopingItemType)
+      : [],
+  };
+}
+
