@@ -78,3 +78,32 @@ function convertChat(internal: Chat): ExtChat {
   };
 }
 
+// Test data generator
+function generateTestData(): Chat {
+  return {
+    title: "Test Chat",
+    nodesList: [
+      {
+        firsName: "John",
+        lastName: "Doe",
+        age: 30,
+        birthDate: "1993-08-15",
+        shoppingItemsList: [
+          {
+            title: "Item 1",
+            price: 10,
+            currency: "USD",
+            date: "2023-08-15",
+          },
+        ],
+      },
+    ],
+  };
+}
+
+// Convert internal data to external data
+const internalChat = generateTestData();
+const externalChat = convertChat(internalChat);
+
+console.log("Internal Chat Data:", JSON.stringify(internalChat, null, 2));
+console.log("External Chat Data:", JSON.stringify(externalChat, null, 2));
