@@ -1,3 +1,4 @@
+// Define internal data types
 type ShopingItemType = {
   title: string;
   price: number;
@@ -36,7 +37,7 @@ interface IExtNodeElement {
   Age: number;
   BirthDate: Timestamp;
   ShoppingItems: ExtShopingItemType[];
-}
+};
 
 type ExtChat = {
   Title: string;
@@ -105,5 +106,6 @@ function generateTestData(): Chat {
 const internalChat = generateTestData();
 const externalChat = convertChat(internalChat);
 
+// Output the results
 console.log("Internal Chat Data:", JSON.stringify(internalChat, null, 2));
 console.log("External Chat Data:", JSON.stringify(externalChat, null, 2));
