@@ -71,3 +71,10 @@ function convertINodeElement(internal: INodeElement): IExtNodeElement {
   };
 }
 
+function convertChat(internal: Chat): ExtChat {
+  return {
+    Title: internal.title,
+    ChatItems: internal.nodesList.map(convertINodeElement),
+  };
+}
+
